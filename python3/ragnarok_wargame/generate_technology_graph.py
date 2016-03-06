@@ -54,6 +54,11 @@ if not os.path.exists(output_file_path):
     with open(output_file_path, 'w') as outfile:
         json.dump(parser.rows, outfile)
         
+# remove self label from dependencies?
+# compute a level and display according to it?
+# remove the axis on the graph
+# save it well
+# use graphViz
 import json
 with open(output_file_path, 'r') as inputfile:
     technology_and_requirements = json.loads(inputfile.read())
@@ -66,11 +71,11 @@ with open(output_file_path, 'r') as inputfile:
     for technology, requirements in technology_and_requirements.items():
         for requirement in requirements:
             graph.add_edge(requirement, technology)
-    
+  
     import matplotlib.pyplot as plt
-    nx.draw(graph)
+    nx.draw_networkx(graph)#, labels
     plt.show()
-    plt.savefig("../../../data/technology_graph.pdf")
+    plt.savefig("../../../data/technology_graph.png")
     
 
 

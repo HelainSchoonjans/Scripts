@@ -72,10 +72,21 @@ with open(output_file_path, 'r') as inputfile:
         for requirement in requirements:
             graph.add_edge(requirement, technology)
   
-    import matplotlib.pyplot as plt
-    nx.draw_networkx(graph)#, labels
-    plt.show()
-    plt.savefig("../../../data/technology_graph.png")
+    def basic_technologies(technology_requirements):
+        basic_tech = []
+        for technology, requirements in technology_requirements.items():
+            if not requirements or requirements == [technology]:
+                print(technology)
+                print("Requirements: ", requirements)
+                basic_tech.append(technology)
+        return basic_tech
+    
+    basic_technologies(technology_and_requirements)
+  
+    #import matplotlib.pyplot as plt
+    #nx.draw_networkx(graph)#, labels
+    #plt.show()
+    #plt.savefig("../../../data/technology_graph.png")
     
 
 

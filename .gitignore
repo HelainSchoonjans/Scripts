@@ -46,3 +46,5 @@ Network Trash Folder
 Temporary Items
 .apdisk
 python3/send_message_to_slack.py
+
+.idea/
